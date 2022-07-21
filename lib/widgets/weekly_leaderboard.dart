@@ -81,11 +81,14 @@ class WeeklyLeaderBoard extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          FractionallySizedBox(
-            widthFactor: 0.8,
-            child: Container(
-              height: 1,
-              color: const Color.fromRGBO(0, 0, 0, 0.05),
+          Align(
+            alignment: Alignment.centerRight,
+            child: FractionallySizedBox(
+              widthFactor: 0.8,
+              child: Container(
+                height: 1,
+                color: const Color.fromRGBO(0, 0, 0, 0.05),
+              ),
             ),
           ),
           const SizedBox(
