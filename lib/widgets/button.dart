@@ -21,15 +21,18 @@ class CourslyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 22),
+      child: Ink(
         decoration: BoxDecoration(
-          borderRadius: SmoothBorderRadius(cornerRadius: 12, cornerSmoothing: 1),
+          borderRadius:
+              SmoothBorderRadius(cornerRadius: 12, cornerSmoothing: 1),
           color: bgColor ?? Colors.black,
         ),
-        child: _buildButtonContent(),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 22),
+          child: _buildButtonContent(),
+        ),
       ),
     );
   }
