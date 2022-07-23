@@ -6,6 +6,7 @@ An educational application made for UI/UX designers
 
 - this app is only for mobile phones and is not responsive for bigger screens
 - because of no code duplications in styling there is no style management strategy used in this project
+- i used Getx package for this project
 
 ## Getting Started
 to run the project follow below steps:
