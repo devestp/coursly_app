@@ -8,6 +8,7 @@ class CourslyButton extends StatelessWidget {
   final Color? bgColor;
   final TextStyle? style;
   final VoidCallback? onTap;
+  final bool loading;
 
   const CourslyButton({
     required this.text,
@@ -16,6 +17,7 @@ class CourslyButton extends StatelessWidget {
     this.bgColor,
     this.style,
     this.onTap,
+    this.loading = false,
     Key? key,
   }) : super(key: key);
 
@@ -25,8 +27,10 @@ class CourslyButton extends StatelessWidget {
       onTap: onTap,
       child: Ink(
         decoration: BoxDecoration(
-          borderRadius:
-              SmoothBorderRadius(cornerRadius: 12, cornerSmoothing: 1),
+          borderRadius: SmoothBorderRadius(
+            cornerRadius: 12,
+            cornerSmoothing: 1,
+          ),
           color: bgColor ?? Colors.black,
         ),
         child: Container(
@@ -63,9 +67,27 @@ class CourslyButton extends StatelessWidget {
       color: color ?? Colors.white,
     );
 
-    return Text(
-      text,
-      style: style != null ? defaultStyle.merge(style) : defaultStyle,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          text,
+          style: style != null ? defaultStyle.merge(style) : defaultStyle,
+        ),
+        if (loading)
+          const SizedBox(
+            width: 8,
+          ),
+        if (loading)
+          const SizedBox(
+            width: 18,
+            height: 18,
+            child: CircularProgressIndicator(
+              color: Colors.white,
+              strokeWidth: 3,
+            ),
+          ),
+      ],
     );
   }
 }
