@@ -13,7 +13,10 @@ class IntroScreen extends StatelessWidget {
       body: Column(children: [
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.4,
-          child: Image.asset('assets/images/intro.png', fit: BoxFit.cover,),
+          child: Image.asset(
+            'assets/images/intro.png',
+            fit: BoxFit.cover,
+          ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
