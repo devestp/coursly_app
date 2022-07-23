@@ -3,12 +3,15 @@ import 'package:get/get.dart';
 
 import '/widgets/widgets.dart';
 import '/theme/theme.dart';
+import '/controllers/controllers.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final MainController controller = Get.put(MainController());
+
     return Scaffold(
       body: Column(children: [
         SizedBox(
@@ -90,13 +93,16 @@ class IntroScreen extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              CourslyButton(
-                text: 'Signup',
-                style: const TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontSize: 16,
+              Obx(
+                () => CourslyButton(
+                  text: 'Signup',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 16,
+                  ),
+                  loading: controller.isLoading.value,
+                  onTap: () => controller.signup(),
                 ),
-                onTap: () => Get.offNamed('/home'),
               ),
               const SizedBox(
                 height: 16,
