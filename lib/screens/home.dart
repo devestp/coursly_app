@@ -24,32 +24,38 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: context.theme.extension<CourslyColor>()!.bgColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: ListView(
-          children: [
-            const SizedBox(
-              height: 24,
-            ),
-            const Header(),
-            const SizedBox(
-              height: 28,
-            ),
-            const PremiumCard(),
-            const SizedBox(
-              height: 24,
-            ),
-            const WeeklyLeaderBoard(),
-            const SizedBox(
-              height: 24,
-            ),
-            const HotCoursesHeader(),
-            const SizedBox(
-              height: 16,
-            ),
-            CourseCard(course: _course),
-            const SizedBox(
-              height: 34,
-            ),
-          ],
+        child: NotificationListener<OverscrollIndicatorNotification>(
+          onNotification: ((notification) {
+            notification.disallowIndicator();
+            return false;
+          }),
+          child: ListView(
+            children: [
+              const SizedBox(
+                height: 24,
+              ),
+              const Header(),
+              const SizedBox(
+                height: 28,
+              ),
+              const PremiumCard(),
+              const SizedBox(
+                height: 24,
+              ),
+              const WeeklyLeaderBoard(),
+              const SizedBox(
+                height: 24,
+              ),
+              const HotCoursesHeader(),
+              const SizedBox(
+                height: 16,
+              ),
+              CourseCard(course: _course),
+              const SizedBox(
+                height: 34,
+              ),
+            ],
+          ),
         ),
       ),
     );
